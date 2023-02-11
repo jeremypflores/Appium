@@ -12,7 +12,7 @@ config.port = 4723,
 // Specs
 // ============
 config.specs = [
-    '../test/specs/ios/ios-todo-list-screen*.js'
+    '../test/specs/ios/ios-webview*.js'
 ]
 
 //
@@ -22,13 +22,22 @@ config.specs = [
 config.capabilities = [
     {
         'platformName': 'ios',
-        'appium:platformVersion': '14.5',
-        'appium:deviceName': 'iPhone 12',
+        'appium:platformVersion': '16.2',
+        'appium:deviceName': 'iPhone 14',
         'appium:automationName': 'XCUITest',
-        'appium:app': path.join(process.cwd(),'./app/ios/MVCTodo.app')
+        'appium:app': path.join(process.cwd(),'./app/ios/wdioNativeDemoApp.app')
     }
 ]
 
-config.services = ['appium']
+config.services = [['appium',
+// {
+//     args: {
+//         address: 'localhost',
+//         port: 4723,
+//         relaxedSecurity: true
+//     },
+//     logPath: './'
+// }
+]];
 
 exports.config = config
